@@ -1,0 +1,1081 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marvek Montessori Nursery, Primary & High School</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            overflow-x: hidden;
+        }
+        
+        /* Header & Navigation */
+        .header {
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 5%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        .logo {
+        font-size: 1.8rem;   /* smaller than the current 2rem */
+        font-weight: bold;
+        color: #0947c1;
+        text-decoration: none;
+        line-height: 1.3;
+    }
+        
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+        
+        .nav-link {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .nav-link:hover {
+            color: #2c5aa0;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background: linear-gradient(135deg, #2c5aa0, #f39c12);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .cta-button {
+            background: linear-gradient(135deg, #2c5aa0, #3498db);
+            color: white;
+            padding: 12px 24px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(44, 90, 160, 0.3);
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(44, 90, 160, 0.4);
+        }
+        
+        /* Hero Section */
+        /* .hero {
+            height: 100vh;
+            background: linear-gradient(135deg, rgba(44, 90, 160, 0.9), rgba(52, 152, 219, 0.8)),
+                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><rect fill="%23f0f8ff" width="1200" height="600"/><g fill="%23e6f3ff"><circle cx="200" cy="150" r="80"/><circle cx="800" cy="400" r="60"/><circle cx="1000" cy="200" r="40"/></g><g fill="%23ddeeff"><polygon points="300,500 450,400 600,500"/><polygon points="100,300 250,200 400,300"/></g></svg>');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        } */
+
+
+        .hero {
+            height: 100vh;
+            background: linear-gradient(135deg, rgba(44, 90, 160, 0.9), rgba(192, 57, 43, 0.8)), 
+                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><rect fill="%23f0f8ff" width="1200" height="600"/><g fill="%23e6f3ff"><circle cx="200" cy="150" r="80"/><circle cx="800" cy="400" r="60"/><circle cx="1000" cy="200" r="40"/></g><g fill="%23ddeeff"><polygon points="300,500 450,400 600,500"/><polygon points="100,300 250,200 400,300"/></g></svg>');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="20" cy="20" r="2" fill="rgba(255,255,255,0.1)"/><circle cx="80" cy="80" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="40" cy="60" r="1.5" fill="rgba(255,255,255,0.1)"/><circle cx="90" cy="30" r="1" fill="rgba(255,255,255,0.1)"/></svg>') repeat;
+            animation: float 20s infinite linear;
+        }
+        
+        @keyframes float {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(-100px, -100px); }
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            z-index: 1;
+            animation: fadeInUp 1s ease;
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+        
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+        }
+        
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, #f39c12, #e67e22);
+            color: white;
+            padding: 15px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            box-shadow: 0 6px 20px rgba(243, 156, 18, 0.3);
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(243, 156, 18, 0.4);
+        }
+        
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            color: white;
+            padding: 15px 30px;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-3px);
+        }
+        
+        /* Features Section */
+        .features {
+            padding: 100px 5%;
+            background: linear-gradient(135deg, #f8fbff, #e8f4f8);
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+        
+        .section-title h2 {
+            font-size: 2.8rem;
+            color: #2c5aa0;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+        
+        .section-title p {
+            font-size: 1.2rem;
+            color: #666;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 4rem;
+        }
+        
+        .feature-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+        }
+        
+        .feature-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #2c5aa0, #3498db);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            font-size: 2rem;
+            color: white;
+        }
+        
+        .feature-card h3 {
+            font-size: 1.5rem;
+            color: #2c5aa0;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+        
+        .feature-card p {
+            color: #666;
+            line-height: 1.6;
+        }
+        
+        /* About Section */
+        .about {
+            padding: 100px 5%;
+            background: white;
+        }
+        
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+        
+        .about-text h2 {
+            font-size: 2.5rem;
+            color: #2c5aa0;
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+        }
+        
+        .about-text p {
+            color: #666;
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+            line-height: 1.7;
+        }
+        
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        
+        .stat {
+            text-align: center;
+            padding: 1.5rem;
+            background: linear-gradient(135deg, #f8fbff, #e8f4f8);
+            border-radius: 15px;
+        }
+        
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #2c5aa0;
+            margin-bottom: 0.5rem;
+        }
+        
+        .stat-label {
+            color: #666;
+            font-weight: 500;
+        }
+        
+        .about-image {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+        }
+        
+        .about-image img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+        }
+        
+        /* Payment Section */
+        .payment-section {
+            padding: 100px 5%;
+            background: linear-gradient(135deg, #2c5aa0, #3498db);
+            color: white;
+        }
+        
+        .payment-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+        
+        .payment-info h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+        }
+        
+        .payment-info p {
+            font-size: 1.1rem;
+            line-height: 1.7;
+            opacity: 0.95;
+            margin-bottom: 1.5rem;
+        }
+        
+        .payment-features {
+            list-style: none;
+            margin: 2rem 0;
+        }
+        
+        .payment-features li {
+            padding: 0.5rem 0;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .payment-features li::before {
+            content: '✓';
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+        
+        .payment-form {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            padding: 2.5rem;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+        
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            padding: 12px 16px;
+            border: none;
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.9);
+            color: #333;
+            font-size: 1rem;
+        }
+        
+        .form-group input:focus,
+        .form-group select:focus {
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.3);
+        }
+        
+        .submit-btn {
+            width: 100%;
+            padding: 15px;
+            background: linear-gradient(135deg, #f39c12, #e67e22);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(243, 156, 18, 0.4);
+        }
+        
+        /* Contact Section */
+        .contact {
+            padding: 100px 5%;
+            background: #f8fbff;
+        }
+        
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: start;
+        }
+        
+        .contact-info {
+            padding: 2rem;
+        }
+        
+        .contact-info h2 {
+            font-size: 2.5rem;
+            color: #2c5aa0;
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            padding: 1rem;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #2c5aa0, #3498db);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+        }
+        
+        .contact-form {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 20px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+        }
+        
+        .contact-form h3 {
+            font-size: 1.8rem;
+            color: #2c5aa0;
+            margin-bottom: 1.5rem;
+            text-align: center;
+            font-weight: 600;
+        }
+        
+        /* Footer */
+        .footer {
+            background: #1a1a2e;
+            color: white;
+            padding: 50px 5% 20px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .footer-section h3 {
+            color: #3498db;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+        
+        .footer-section ul {
+            list-style: none;
+        }
+        
+        .footer-section ul li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .footer-section ul li a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-section ul li a:hover {
+            color: #3498db;
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid #333;
+            color: #999;
+        }
+        
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .logo {
+                font-size: 1.1rem;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero p {
+                font-size: 1.1rem;
+            }
+            
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .about-content,
+            .payment-content,
+            .contact-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .stats {
+                grid-template-columns: 1fr;
+            }
+            
+            .section-title h2 {
+                font-size: 2.2rem;
+            }
+            
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav-container">
+            <a href="#" class="logo">Marvek Montessori & High School
+
+            <ul class="nav-menu">
+                <li><a href="#home" class="nav-link">Home</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#programs" class="nav-link">Programs</a></li>
+                <li><a href="#admissions" class="nav-link">Admissions</a></li>
+                <li><a href="#payments" class="nav-link">Payments</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+            <a href="#enrollment" class="cta-button">Enroll Now</a>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Nurturing Tomorrow's Leaders</h1>
+            <p>Where every child's journey begins with love, learning, and limitless possibilities. Join our family of young explorers and watch your kids shine bright.</p>
+            <div class="hero-buttons">
+                <a href="#about" class="btn-primary">Discover Our Story</a>
+                <a href="#programs" class="btn-secondary">Explore Programs</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="programs" class="features">
+        <div class="container">
+            <div class="section-title">
+                <h2>Why Choose Marvek Montessori Nursery and Primary School  and Marvel High School?</h2>
+                <p>We provide a nurturing environment where children develop academically, socially, and emotionally through innovative teaching methods and personalized care.</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🎨</div>
+                    <h3>Creative Learning</h3>
+                    <p>Our innovative curriculum combines traditional academics with creative arts, music, and hands-on activities to engage every learning style.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">👥</div>
+                    <h3>Small Class Sizes</h3>
+                    <p>With a low teacher-to-student ratio, each child receives personalized attention and support to reach their full potential.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🌱</div>
+                    <h3>Holistic Development</h3>
+                    <p>We focus on developing the whole child - cognitive, physical, social, and emotional growth through balanced programs.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🏆</div>
+                    <h3>Qualified Teachers</h3>
+                    <p>Our experienced and certified educators are passionate about early childhood development and committed to excellence.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🛡️</div>
+                    <h3>Safe Environment</h3>
+                    <p>State-of-the-art facilities with comprehensive safety measures ensure your child learns in a secure, nurturing environment.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📱</div>
+                    <h3>Parent Communication</h3>
+                    <p>Stay connected with daily updates, photos, and progress reports through our parent portal and regular communication.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2>Building Bright Futures Since 2010</h2>
+                    <p>At Marvek Montessori Nursery and Primary School  and Marvel High School, we believe every child is unique and deserves an education tailored to their individual needs. Our progressive approach combines the best of traditional and modern teaching methods.</p>
+                    <p>We're committed to creating a warm, inclusive environment where children feel valued, confident, and excited to learn. Our comprehensive programs prepare students for academic success while nurturing their creativity and character.</p>
+                    <div class="stats">
+                        <div class="stat">
+                            <div class="stat-number">500+</div>
+                            <div class="stat-label">Happy Students</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number">50+</div>
+                            <div class="stat-label">Expert Teachers</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number">15</div>
+                            <div class="stat-label">Years Experience</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-image">
+                    <img src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 400'><rect fill='%23f0f8ff' width='600' height='400'/><g fill='%23e6f3ff'><circle cx='150' cy='150' r='60'/><circle cx='450' cy='250' r='40'/></g><g fill='%23ddeeff'><rect x='50' y='300' width='100' height='80'/><rect x='200' y='250' width='120' height='100'/><rect x='400' y='50' width='80' height='120'/></g><text x='300' y='200' text-anchor='middle' font-family='Arial' font-size='24' fill='%232c5aa0'>Happy Learning Environment</text></svg>" alt="School Environment">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Payment Section -->
+    <section id="payments" class="payment-section">
+        <div class="container">
+            <div class="payment-content">
+                <div class="payment-info">
+                    <h2>Convenient Online Payments</h2>
+                    <p>Make tuition and fee payments securely online with our convenient payment system. We accept multiple payment methods and offer flexible payment plans to support your family's needs.</p>
+                    <ul class="payment-features">
+                        <li>Secure encrypted transactions</li>
+                        <li>Multiple payment methods accepted</li>
+                        <li>Flexible payment schedules</li>
+                        <li>Instant payment confirmation</li>
+                        <li>Payment history and receipts</li>
+                        <li>Auto-pay options available</li>
+                    </ul>
+                </div>
+                <div class="payment-form">
+                    <h3>Make a Payment</h3>
+                    <form id="paymentForm">
+                        <div class="form-group">
+                            <label for="studentName">Student Name</label>
+                            <input type="text" id="studentName" name="studentName" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="studentId">Student ID</label>
+                            <input type="text" id="studentId" name="studentId" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="paymentType">Payment Type</label>
+                            <select id="paymentType" name="paymentType" required>
+                                <option value="">Select Payment Type</option>
+                                <option value="tuition">Monthly Tuition</option>
+                                <option value="registration">Registration Fee</option>
+                                <option value="materials">Learning Materials</option>
+                                <option value="activities">Activities Fee</option>
+                                <option value="transport">Transportation</option>
+                                <option value="meals">Meal Plan</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="amount">Amount (₦)</label>
+                            <input type="number" id="amount" name="amount" min="1000" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="paymentMethod">Payment Method</label>
+                            <select id="paymentMethod" name="paymentMethod" required>
+                                <option value="">Select Payment Method</option>
+                                <option value="card">Debit/Credit Card</option>
+                                <option value="bank_transfer">Bank Transfer</option>
+                                <option value="paystack">Paystack</option>
+                                <option value="flutterwave">Flutterwave</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="submit-btn">Proceed to Payment</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <h2>Get in Touch</h2>
+                    <div class="contact-item">
+                        <div class="contact-icon">📍</div>
+                        <div>
+                            <h4>Visit Our Schools</h4>
+                            <p>Plot 5 Biket Hospital Street, Ota-Efun Osogbo.<br>Osun, Nigeria</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">📞</div>
+                        <div>
+                            <h4>Call Us</h4>
+                            <p>+234 903 327 2368<br>+234 706 970 0836</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">✉️</div>
+                        <div>
+                            <h4>Email Us</h4>
+                            <p>info@marvekschools.edu.ng<br>admissions@marvekschools.edu.ng</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">🕒</div>
+                        <div>
+                            <h4>School Hours</h4>
+                            <p>Mon - Fri: 7:30 AM - 4:00 PM<br>Sat: 8:00 AM - 12:00 PM</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <h3>Send Us a Message</h3>
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="parentName">Your Name</label>
+                            <input type="text" id="parentName" name="parentName" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" name="phone" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Subject</label>
+                            <select id="subject" name="subject" required>
+                                <option value="">Select Subject</option>
+                                <option value="admission">Admission Inquiry</option>
+                                <option value="payment">Payment Support</option>
+                                <option value="general">General Information</option>
+                                <option value="complaint">Complaint/Feedback</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" rows="5" style="width: 100%; padding: 12px 16px; border: none; border-radius: 10px; background: rgba(255, 255, 255, 0.9); color: #333; font-size: 1rem; font-family: inherit; resize: vertical;" required></textarea>
+                        </div>
+                        <button type="submit" class="submit-btn">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Marvek Montessori Nursery and Primary School  and Marvel High School</h3>
+                    <p>Nurturing young minds with love, care, and excellence in education. Building the foundation for lifelong learning and success.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#programs">Programs</a></li>
+                        <li><a href="#admissions">Admissions</a></li>
+                        <li><a href="#payments">Online Payments</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Programs</h3>
+                    <ul>
+                        <li><a href="#">Nursery (Ages 2-4)</a></li>
+                        <li><a href="#">Pre-Primary (Ages 4-5)</a></li>
+                        <li><a href="#">Primary 1-3 (Ages 6-8)</a></li>
+                        <li><a href="#">Primary 4-6 (Ages 9-11)</a></li>
+                        <li><a href="#">After School Care</a></li>
+                        <li><a href="#">Summer Programs</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Resources</h3>
+                    <ul>
+                        <li><a href="#">Parent Portal</a></li>
+                        <li><a href="#">School Calendar</a></li>
+                        <li><a href="#">Policies</a></li>
+                        <li><a href="#">News & Events</a></li>
+                        <li><a href="#">Photo Gallery</a></li>
+                        <li><a href="#">Career Opportunities</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Marvek Montessori Nursery and Primary School  and Marvel High School. All rights reserved. | Designed with ❤️ for education excellence</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Header scroll effect
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('.header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(255, 255, 255, 0.95)';
+                header.style.boxShadow = '0 4px 30px rgba(0, 0, 0, 0.15)';
+            } else {
+                header.style.background = 'rgba(255, 255, 255, 0.98)';
+                header.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.1)';
+            }
+        });
+
+        // Payment form handling
+        document.getElementById('paymentForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const formData = new FormData(this);
+            const paymentData = {
+                studentName: formData.get('studentName'),
+                studentId: formData.get('studentId'),
+                paymentType: formData.get('paymentType'),
+                amount: formData.get('amount'),
+                paymentMethod: formData.get('paymentMethod')
+            };
+
+            // Show loading state
+            const submitBtn = this.querySelector('.submit-btn');
+            const originalText = submitBtn.textContent;
+            submitBtn.textContent = 'Processing...';
+            submitBtn.disabled = true;
+
+            try {
+                // Simulate API call to backend
+                await simulatePaymentProcessing(paymentData);
+                
+                // Show success message
+                alert(`Payment initiated successfully!\n\nStudent: ${paymentData.studentName}\nAmount: ₦${paymentData.amount}\nType: ${paymentData.paymentType}\n\nYou will be redirected to the payment gateway.`);
+                
+                // Reset form
+                this.reset();
+                
+            } catch (error) {
+                alert('Payment processing failed. Please try again or contact support.');
+            } finally {
+                // Reset button
+                submitBtn.textContent = originalText;
+                submitBtn.disabled = false;
+            }
+        });
+
+        // Contact form handling
+        document.getElementById('contactForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const formData = new FormData(this);
+            const contactData = {
+                parentName: formData.get('parentName'),
+                email: formData.get('email'),
+                phone: formData.get('phone'),
+                subject: formData.get('subject'),
+                message: formData.get('message')
+            };
+
+            // Show loading state
+            const submitBtn = this.querySelector('.submit-btn');
+            const originalText = submitBtn.textContent;
+            submitBtn.textContent = 'Sending...';
+            submitBtn.disabled = true;
+
+            try {
+                // Simulate API call to backend
+                await simulateMessageSending(contactData);
+                
+                // Show success message
+                alert('Thank you for your message! We will get back to you within 24 hours.');
+                
+                // Reset form
+                this.reset();
+                
+            } catch (error) {
+                alert('Failed to send message. Please try again or call us directly.');
+            } finally {
+                // Reset button
+                submitBtn.textContent = originalText;
+                submitBtn.disabled = false;
+            }
+        });
+
+        // Simulate payment processing (replace with actual API calls)
+        async function simulatePaymentProcessing(paymentData) {
+            return new Promise((resolve, reject) => {
+                setTimeout(() => {
+                    // Simulate success/failure
+                    if (Math.random() > 0.1) { // 90% success rate
+                        resolve({ success: true, transactionId: 'TXN' + Date.now() });
+                    } else {
+                        reject(new Error('Payment failed'));
+                    }
+                }, 2000);
+            });
+        }
+
+        // Simulate message sending (replace with actual API calls)
+        async function simulateMessageSending(contactData) {
+            return new Promise((resolve, reject) => {
+                setTimeout(() => {
+                    // Simulate success/failure
+                    if (Math.random() > 0.05) { // 95% success rate
+                        resolve({ success: true, messageId: 'MSG' + Date.now() });
+                    } else {
+                        reject(new Error('Message sending failed'));
+                    }
+                }, 1500);
+            });
+        }
+
+        // Animate stats on scroll
+        const observerOptions = {
+            threshold: 0.7,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const statNumbers = entry.target.querySelectorAll('.stat-number');
+                    statNumbers.forEach(stat => {
+                        const finalValue = parseInt(stat.textContent);
+                        let currentValue = 0;
+                        const increment = finalValue / 50;
+                        const timer = setInterval(() => {
+                            currentValue += increment;
+                            if (currentValue >= finalValue) {
+                                stat.textContent = finalValue + (stat.textContent.includes('+') ? '+' : '');
+                                clearInterval(timer);
+                            } else {
+                                stat.textContent = Math.floor(currentValue) + (stat.textContent.includes('+') ? '+' : '');
+                            }
+                        }, 50);
+                    });
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        // Observe stats section
+        const statsSection = document.querySelector('.stats');
+        if (statsSection) {
+            observer.observe(statsSection);
+        }
+
+        // Add entrance animations
+        const animateOnScroll = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, { threshold: 0.1 });
+
+        // Apply animations to feature cards and other elements
+        document.querySelectorAll('.feature-card, .contact-item').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            animateOnScroll.observe(el);
+        });
+    </script>
+</body>
+</html>
